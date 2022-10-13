@@ -6,7 +6,7 @@ on:
 
 jobs:
   publish-hamburg-main:
-    uses: priobike/priobike-graphhopper/.github/workflows/publish.yaml@main
+    uses: ./.github/workflows/publish.yaml
     with:
       context: hamburg
       registry: bikenow.vkw.tu-dresden.de
@@ -17,7 +17,7 @@ jobs:
       NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
 
   publish-sachsen-main:
-    uses: priobike/priobike-graphhopper/.github/workflows/publish.yaml@main
+    uses: ./.github/workflows/publish.yaml
     with:
       context: sachsen
       registry: bikenow.vkw.tu-dresden.de
@@ -28,7 +28,7 @@ jobs:
       NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
 
   publish-hamburg-stable:
-    uses: priobike/priobike-graphhopper/.github/workflows/publish.yaml@main
+    uses: ./.github/workflows/publish.yaml
     with:
       context: hamburg
       registry: bikenow.vkw.tu-dresden.de
@@ -39,7 +39,7 @@ jobs:
       NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
 
   publish-sachsen-stable:
-    uses: priobike/priobike-graphhopper/.github/workflows/publish.yaml@main
+    uses: ./.github/workflows/publish.yaml
     with:
       context: sachsen
       registry: bikenow.vkw.tu-dresden.de
