@@ -1,0 +1,50 @@
+name: Nightly - Create and publish Docker image
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  publish-hamburg-main:
+    uses: ./.github/workflows/publish.yaml
+    with:
+      context: hamburg
+      registry: bikenow.vkw.tu-dresden.de
+      image-name: ${{ github.repository }}-hamburg
+      branch: main
+    secrets:
+      NEXUS_DOCKER_PUB_USERNAME: ${{ secrets.NEXUS_DOCKER_PUB_USERNAME }}
+      NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
+
+  publish-sachsen-main:
+    uses: ./.github/workflows/publish.yaml
+    with:
+      context: sachsen
+      registry: bikenow.vkw.tu-dresden.de
+      image-name: ${{ github.repository }}-sachsen
+      branch: main
+    secrets:
+      NEXUS_DOCKER_PUB_USERNAME: ${{ secrets.NEXUS_DOCKER_PUB_USERNAME }}
+      NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
+
+  publish-hamburg-stable:
+    uses: ./.github/workflows/publish.yaml
+    with:
+      context: hamburg
+      registry: bikenow.vkw.tu-dresden.de
+      image-name: ${{ github.repository }}-hamburg
+      branch: stable
+    secrets:
+      NEXUS_DOCKER_PUB_USERNAME: ${{ secrets.NEXUS_DOCKER_PUB_USERNAME }}
+      NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
+
+  publish-sachsen-stable:
+    uses: ./.github/workflows/publish.yaml
+    with:
+      context: sachsen
+      registry: bikenow.vkw.tu-dresden.de
+      image-name: ${{ github.repository }}-sachsen
+      branch: stable
+    secrets:
+      NEXUS_DOCKER_PUB_USERNAME: ${{ secrets.NEXUS_DOCKER_PUB_USERNAME }}
+      NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
