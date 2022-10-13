@@ -1,3 +1,3 @@
-# GraphHopper-DRN
+# PrioBike GraphHopper
 
-A GraphHopper based on the DRN network.
+A GraphHopper based on the OSM network.
