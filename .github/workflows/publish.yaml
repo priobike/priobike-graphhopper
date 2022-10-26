@@ -67,4 +67,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            CACHE_DATE=${{ env.NOW }}
+            CACHE_DATE=${NOW}
