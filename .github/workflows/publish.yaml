@@ -37,9 +37,6 @@ jobs:
       packages: write
 
     steps:
-      - name: Set current date as env variable
-        run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -67,4 +64,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            CACHE_DATE=${NOW}
+            CACHE_DATE=${{ github.event.repository.updated_at }}-${{ github.run_id }}-${{ github.run_attempt }}
