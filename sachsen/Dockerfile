@@ -1,7 +1,8 @@
 FROM openjdk:8
 
-# Use this argument to invalidate the cache of subsequent steps.
+# Use this to invalidate the cache of subsequent steps. See comments of: https://stackoverflow.com/a/49772666/14795847
 ARG CACHE_DATE=1970-01-01
+RUN echo $CACHE_DATE
 
 WORKDIR /graphhopper
 
