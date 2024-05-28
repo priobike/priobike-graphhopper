@@ -8,6 +8,8 @@ WORKDIR /graphhopper
 
 COPY . .
 
+RUN cat run.sh
+
 RUN wget https://github.com/graphhopper/graphhopper/releases/download/8.0/graphhopper-web-8.0.jar http://download.geofabrik.de/europe/germany/sachsen-latest.osm.pbf
 RUN ./preheat.sh 
 
