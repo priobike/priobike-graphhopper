@@ -4,13 +4,17 @@ FROM openjdk:8
 ARG CACHE_DATE=1970-01-01
 RUN echo $CACHE_DATE
 
+ARG REGION=hamburg
+
 WORKDIR /graphhopper
 
-COPY . .
+COPY ./config-bike.yml ./config-bike.yml
+COPY ./preheat.sh ./preheat.sh
+COPY ./run.sh ./run.sh
 
 RUN cat run.sh
 
-RUN wget https://github.com/graphhopper/graphhopper/releases/download/8.0/graphhopper-web-8.0.jar http://download.geofabrik.de/europe/germany/sachsen-latest.osm.pbf
+RUN wget https://github.com/graphhopper/graphhopper/releases/download/8.0/graphhopper-web-8.0.jar http://download.geofabrik.de/europe/germany/${REGION}-latest.osm.pbf
 RUN ./preheat.sh 
 
 HEALTHCHECK --interval=5s --timeout=3s CMD curl --fail http://localhost:8989/health || exit 1

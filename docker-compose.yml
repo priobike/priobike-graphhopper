@@ -1,6 +1,12 @@
 version: "3"
 services:
   hamburg:
-    build: hamburg
+    build:
+      context: .
+      args:
+        - REGION=hamburg
   sachsen:
-    build: sachsen
+    build:
+      context: .
+      args:
+        - REGION=sachsen

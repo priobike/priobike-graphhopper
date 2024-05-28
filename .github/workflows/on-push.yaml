@@ -13,7 +13,7 @@ jobs:
   publish-hamburg:
     uses: ./.github/workflows/publish.yaml
     with:
-      context: hamburg
+      region: hamburg
       registry: bikenow.vkw.tu-dresden.de
       image: ${{ github.repository }}-hamburg
       branch: ${{ github.ref_name }}
@@ -24,7 +24,7 @@ jobs:
   publish-sachsen:
     uses: ./.github/workflows/publish.yaml
     with:
-      context: sachsen
+      region: sachsen
       registry: bikenow.vkw.tu-dresden.de
       image: ${{ github.repository }}-sachsen
       branch: ${{ github.ref_name }}
