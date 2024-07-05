@@ -4,22 +4,8 @@ on:
   push:
     branches:
       - main
-      - stable
-    tags:
-      - v*
 
 jobs:
-  publish-hamburg:
-    uses: ./.github/workflows/publish.yaml
-    with:
-      region: hamburg
-      registry: bikenow.vkw.tu-dresden.de
-      image: ${{ github.repository }}-hamburg
-      branch: ${{ github.ref_name }}
-    secrets:
-      NEXUS_DOCKER_PUB_USERNAME: ${{ secrets.NEXUS_DOCKER_PUB_USERNAME }}
-      NEXUS_DOCKER_PUB_PASSWORD: ${{ secrets.NEXUS_DOCKER_PUB_PASSWORD }}
-
   publish-sachsen:
     uses: ./.github/workflows/publish.yaml
     with:

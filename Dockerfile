@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:8
 
 # Use this to invalidate the cache of subsequent steps. See comments of: https://stackoverflow.com/a/49772666/14795847
 ARG CACHE_DATE=1970-01-01
